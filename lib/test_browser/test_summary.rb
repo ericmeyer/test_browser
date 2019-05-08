@@ -1,25 +1,28 @@
+require "test_browser/test"
+
 module TestBrowser
   class TestSummary
 
     def self.build_summary(results)
-      return TestBrowser::TestSummary.new(results)
+      tests = results.fetch("tests", []).map do |test_data|
+        TestBrowser::Test.new({
+          name: test_data["name"]
+        })
+      end
+      return TestBrowser::TestSummary.new({
+        tests: tests
+      })
     end
 
-    def initialize(results)
-      @results = results
+    def initialize(tests:)
+      @tests = tests
     end
 
     def test_names
-      return tests.map do |test|
-        test["name"]
-      end
+      return @tests.map(&:name)
     end
 
     private
-
-    def tests
-      @results.fetch("tests", [])
-    end
 
   end
 end
