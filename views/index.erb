@@ -7,5 +7,10 @@
   </head>
   <body>
     <h1>Dotpretty Browser</h1>
+    <ul>
+      <% results["tests"].each do |result| %>
+        <li><%= result["name"] %></li>
+      <% end %>
+    </ul>
   </body>
 </html>

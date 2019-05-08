@@ -1,0 +1,9 @@
+{
+  "tests" : [{
+    "result" : "passed",
+    "name" : "SampleProjectTests.UnitTest1.Test1"
+  }, {
+    "result" : "passed",
+    "name" : "SampleProjectTests.UnitTest1.Test2"
+  }]
+}
