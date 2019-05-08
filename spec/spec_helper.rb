@@ -11,6 +11,5 @@ RSpec.configure do |config|
   end
 
   config.filter_run_when_matching :focus
-  config.warnings = true
 
 end
