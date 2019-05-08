@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="5">
-    <title>Dotpretty Browser</title>
-  </head>
-  <body>
-    <h1>Dotpretty Browser</h1>
-    <ul>
-      <% results["tests"].each do |result| %>
-        <li><%= result["name"] %></li>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="5">
+  <title>Dotpretty Browser</title>
+</head>
+<body>
+  <h1>Dotpretty Browser</h1>
+  <ul>
+    <% results["tests"].each do |test| %>
+      <li><%= test["name"] %>: <%= test["result"]%></li>
+        <% if test["details"] %>
+          <ul>
+            <% test["details"].each do |detail| %>
+              <li><%= detail %></li>
+            <% end %>
+          <ul>
+        <% end %>
       <% end %>
     </ul>
   </body>
-</html>
+  </html>

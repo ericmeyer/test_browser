@@ -3,7 +3,8 @@
     "result" : "passed",
     "name" : "SampleProjectTests.UnitTest1.Test1"
   }, {
-    "result" : "passed",
-    "name" : "SampleProjectTests.UnitTest1.Test2"
+    "result" : "failed",
+    "name" : "SampleProjectTests.UnitTest1.Test2",
+    "details": ["one", "two"]
   }]
 }
