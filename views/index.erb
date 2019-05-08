@@ -8,16 +8,10 @@
 <body>
   <h1>Test Browser</h1>
   <ul>
-    <% results["tests"].each do |test| %>
-      <li><%= test["name"] %>: <%= test["result"]%></li>
-        <% if test["details"] %>
-          <ul>
-            <% test["details"].each do |detail| %>
-              <li><%= detail %></li>
-            <% end %>
-          <ul>
-        <% end %>
-      <% end %>
-    </ul>
-  </body>
-  </html>
+    <%= test_summary %>
+    <% test_summary.test_names.each do |test_name| %>
+      <li><%= test_name %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
