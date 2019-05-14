@@ -1,9 +1,13 @@
+$: << File.expand_path(File.join(File.dirname(__FILE__), "lib"))
+
 require "sinatra"
 require "test_browser/results"
 require "test_browser/test_summary"
 
 post "/receive_results" do
-  TestBrowser::Results.set(JSON.parse(request.body.read))
+  body = request.body.read
+  TestBrowser::Results.set(JSON.parse(body))
+  "Success"
 end
 
 get "/" do
