@@ -8,10 +8,14 @@ describe "Displaying test result" do
     expect(last_response).to be_ok
   end
 
-  it "displays the received results for one passing test" do
+  it "displays the received results for a test suite" do
     post_json "/receive_results", {
       tests: [{
-        name: "MyTest1"
+        name: "MyTest1",
+        result: "passed"
+      }, {
+        name: "MyTest2",
+        result: "failed"
       }]
     }
 
@@ -20,7 +24,8 @@ describe "Displaying test result" do
     get "/"
 
     expect(last_response).to be_ok
-    expect(last_response.body).to include("MyTest1")
+    expect(last_response.body).not_to include("MyTest1")
+    expect(last_response.body).to include("MyTest2")
   end
 
 end

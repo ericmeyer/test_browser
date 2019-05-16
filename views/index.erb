@@ -6,11 +6,21 @@
   <title>Test Browser</title>
 </head>
 <body>
-  <h1>Test Browser</h1>
+  <h1>Test Results</h1>
+  <table>
+    <tr>
+      <td>Total Number of Tests</td>
+      <td><%= test_summary.tests.count %></td>
+    </tr>
+    <tr>
+      <td>Number of Passing Tests</td>
+      <td><%= test_summary.passing_test_count %></td>
+    </tr>
+  </table>
+  <h3>Failing Tests</h3>
   <ul>
-    <%= test_summary %>
-    <% test_summary.test_names.each do |test_name| %>
-      <li><%= test_name %></li>
+    <% test_summary.failing_tests.each do |failing_test| %>
+      <li><%= failing_test.name %></li>
     <% end %>
   </ul>
 </body>
