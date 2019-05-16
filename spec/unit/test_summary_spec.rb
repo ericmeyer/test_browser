@@ -54,6 +54,24 @@ describe TestBrowser::TestSummary do
         expect(summary.test_names).to eq(["foobar"])
       end
     end
+
+    context "when there is one failing test" do
+      it "builds the summary with the details" do
+        failure_details = [
+          "Detail1",
+          "Detail2"
+        ]
+        summary = build_summary({
+          "tests" => [{
+            "details" => failure_details,
+            "name" => "foobar",
+            "result" => "passed"
+          }]
+        })
+
+        expect(summary.tests[0].details).to eq(failure_details)
+      end
+    end
   end
 
   describe "A test summary with no tests" do

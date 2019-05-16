@@ -16,11 +16,22 @@
       <td>Number of Passing Tests</td>
       <td><%= test_summary.passing_test_count %></td>
     </tr>
+    <tr>
+      <td>Number of Failing Tests</td>
+      <td><%= test_summary.failing_tests.count %></td>
+    </tr>
   </table>
   <h3>Failing Tests</h3>
   <ul>
     <% test_summary.failing_tests.each do |failing_test| %>
-      <li><%= failing_test.name %></li>
+      <li>
+        <%= failing_test.name %>
+        <ul>
+          <% failing_test.details.each do |detail| %>
+            <li><%= detail %></li>
+          <% end %>
+        </ul>
+      </li>
     <% end %>
   </ul>
 </body>

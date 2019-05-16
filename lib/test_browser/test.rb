@@ -1,9 +1,10 @@
 module TestBrowser
   class Test
 
-    attr_reader :name
+    attr_reader :details, :name
 
-    def initialize(name:, result:)
+    def initialize(name:, result:, details: [])
+      self.details = details
       self.name = name
       self.result = result
     end
@@ -19,7 +20,7 @@ module TestBrowser
     private
 
     attr_accessor :result
-    attr_writer :name
+    attr_writer :details, :name
 
   end
 end

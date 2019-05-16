@@ -6,6 +6,7 @@ module TestBrowser
     def self.build_summary(results)
       tests = results.fetch("tests", []).map do |test_data|
         TestBrowser::Test.new({
+          details: test_data["details"],
           name: test_data.fetch("name"),
           result: test_data.fetch("result")
         })

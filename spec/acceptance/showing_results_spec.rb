@@ -14,6 +14,10 @@ describe "Displaying test result" do
         name: "MyTest1",
         result: "passed"
       }, {
+        details: [
+          "Detail1",
+          "Detail2"
+        ],
         name: "MyTest2",
         result: "failed"
       }]
@@ -26,6 +30,8 @@ describe "Displaying test result" do
     expect(last_response).to be_ok
     expect(last_response.body).not_to include("MyTest1")
     expect(last_response.body).to include("MyTest2")
+    expect(last_response.body).to include("Detail1")
+    expect(last_response.body).to include("Detail2")
   end
 
 end
