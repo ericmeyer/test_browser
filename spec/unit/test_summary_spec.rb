@@ -1,30 +1,6 @@
 require "test_browser/test_summary"
+require "object-mothers/test"
 
-class TestMother
-
-  def self.failing_test(name)
-    return TestBrowser::Test.new({
-      # details: [],
-      name: name,
-      result: "failed"
-    })
-  end
-
-  def self.passing_test(name)
-    return TestBrowser::Test.new({
-      name: name,
-      result: "passed"
-    })
-  end
-
-  def self.skipped_test(name)
-    return TestBrowser::Test.new({
-      name: name,
-      result: "skipped"
-    })
-  end
-
-end
 describe TestBrowser::TestSummary do
 
   def build_summary(results)

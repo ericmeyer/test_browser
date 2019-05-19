@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="5">
   <title>Test Browser</title>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
   <h1>Test Results</h1>
@@ -26,11 +27,11 @@
       <h3>Failing Tests</h3>
       <ul>
         <% test_summary.failing_tests.each do |failing_test| %>
-          <li>
+          <li class="code">
             <%= failing_test.name %>
             <ul>
               <% failing_test.details.each do |detail| %>
-                <li><%= detail %></li>
+                <li><%= detail.gsub(" ", "&nbsp;") %></li>
               <% end %>
             </ul>
           </li>
