@@ -10,29 +10,33 @@
   <table>
     <tr>
       <td>Total Number of Tests</td>
-      <td><%= test_summary.tests.count %></td>
+      <td data-id="total-number-of-tests"><%= test_summary.tests.count %></td>
     </tr>
     <tr>
       <td>Number of Passing Tests</td>
-      <td><%= test_summary.passing_test_count %></td>
+      <td data-id="number-of-passing-tests"><%= test_summary.passing_test_count %></td>
     </tr>
     <tr>
       <td>Number of Failing Tests</td>
-      <td><%= test_summary.failing_tests.count %></td>
+      <td data-id="number-of-failing-tests"><%= test_summary.failing_tests.count %></td>
     </tr>
   </table>
-  <h3>Failing Tests</h3>
-  <ul>
-    <% test_summary.failing_tests.each do |failing_test| %>
-      <li>
-        <%= failing_test.name %>
-        <ul>
-          <% failing_test.details.each do |detail| %>
-            <li><%= detail %></li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+  <% if test_summary.failing_tests.any? %>
+    <div data-id="failure-summary">
+      <h3>Failing Tests</h3>
+      <ul>
+        <% test_summary.failing_tests.each do |failing_test| %>
+          <li>
+            <%= failing_test.name %>
+            <ul>
+              <% failing_test.details.each do |detail| %>
+                <li><%= detail %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </body>
 </html>

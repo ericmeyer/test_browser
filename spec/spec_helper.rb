@@ -1,4 +1,5 @@
 PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+require "support/have_text"
 
 RSpec.configure do |config|
 
