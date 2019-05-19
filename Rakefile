@@ -15,3 +15,10 @@ task spec: [:unit, :acceptance] do
 end
 
 task default: :spec
+
+desc ""
+RSpec::Core::RakeTask.new(:build) do |task|
+  task.rspec_opts = [ "--format documentation" ]
+  task.pattern = "spec/**/*_spec.rb"
+  task.verbose = false
+end
