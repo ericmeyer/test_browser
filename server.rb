@@ -1,6 +1,7 @@
 $: << File.expand_path(File.join(File.dirname(__FILE__), "lib"))
 
 require "sinatra"
+require "test_browser/formatter"
 require "test_browser/results"
 require "test_browser/test_summary"
 
