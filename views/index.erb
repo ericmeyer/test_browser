@@ -2,33 +2,35 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="5">
   <title>Test Browser</title>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Roboto&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Test Results</h1>
-  <table>
-    <tr>
-      <td>Total Number of Tests</td>
-      <td data-id="total-number-of-tests"><%= test_summary.tests.count %></td>
-    </tr>
-    <tr>
-      <td>Number of Passing Tests</td>
-      <td data-id="number-of-passing-tests"><%= test_summary.passing_test_count %></td>
-    </tr>
-    <tr>
-      <td>Number of Failing Tests</td>
-      <td data-id="number-of-failing-tests"><%= test_summary.failing_tests.count %></td>
-    </tr>
-  </table>
+  <div class="test-summary">
+    <h1>Test Results</h1>
+    <table>
+      <tr>
+        <td>Total</td>
+        <td data-id="total-number-of-tests"><%= test_summary.tests.count %></td>
+      </tr>
+      <tr>
+        <td>Passing</td>
+        <td data-id="number-of-passing-tests"><%= test_summary.passing_test_count %></td>
+      </tr>
+      <tr>
+        <td>Failing</td>
+        <td data-id="number-of-failing-tests"><%= test_summary.failing_tests.count %></td>
+      </tr>
+    </table>
+  </div>
   <% if test_summary.failing_tests.any? %>
-    <div data-id="failure-summary">
-      <h3>Failing Tests</h3>
+    <div data-id="failure-summary" class="failure-summary">
+      <h2 class="header">Failures</h2>
       <ul>
         <% test_summary.failing_tests.each do |failing_test| %>
-          <li class="code" data-id="failing_test">
-            <%= failing_test.name %>
+          <li class="code failing-test" data-id="failing_test">
+            <div class="name"><%= failing_test.name %></div>
             <ul>
               <% failing_test.details.each do |detail| %>
                 <li><%= TestBrowser::Formatter.format_failure_detail(detail) %></li>

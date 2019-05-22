@@ -1,3 +1,35 @@
+body {
+  background-color: #e8e8e8;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.test-summary {
+  padding: 1em;
+}
+
 .code {
-  font-family: monospace;
+  font-family: "Inconsolata", monospace;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.failing-test {
+  background-color: #ec7e7e;
+  padding: 1em;
+  margin-bottom: 0.5em;
+}
+.failure-summary .header {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.failing-test .name {
+  font-weight: bold;
+  padding-bottom: 1em;
 }
